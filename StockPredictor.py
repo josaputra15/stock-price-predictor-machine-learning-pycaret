@@ -1,5 +1,7 @@
 import pandas as pd
 from pycaret.regression import *
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+import numpy as np
 
 # Load the dataset
 data = pd.read_csv('VOO.csv')
@@ -67,3 +69,20 @@ decision = should_buy(current_price, latest_prediction, threshold=0)
 
 # Print the decision along with current and predicted prices
 print(f"Current Price: {current_price}, Predicted Next Close: {latest_prediction}, Decision: {decision}")
+
+
+
+
+# # Get the true values of 'NextClose' for the test set
+# y_true = test['NextClose']
+
+# # Get the predicted values from the predictions DataFrame
+# y_pred = predictions['prediction_label']
+
+# # Calculate Mean Absolute Error (MAE)
+# mae = mean_absolute_error(y_true, y_pred)
+# print(f"Mean Absolute Error (MAE): {mae}")
+
+# # Calculate Root Mean Squared Error (RMSE)
+# rmse = np.sqrt(mean_squared_error(y_true, y_pred))
+# print(f"Root Mean Squared Error (RMSE): {rmse}")
